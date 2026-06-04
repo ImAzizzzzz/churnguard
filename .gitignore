@@ -27,3 +27,6 @@ Thumbs.db
 
 # ─── ML artifacts (large) ─────────────────
 *.joblib.bak
+
+# ─── Internal planning / spec docs ────────
+docs/superpowers/

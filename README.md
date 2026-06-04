@@ -28,7 +28,7 @@ churn-app/
 │   ├── models/             # ORM models (users, permissions, history, workflow…)
 │   ├── routers/            # REST endpoints (auth, predict, analytics, reports…)
 │   ├── services/           # auth_service, ml_service
-│   ├── ml/                 # Trained model files (model.joblib, pipeline.joblib)
+│   ├── ml/                 # Trained model files (model.joblib, scaler.joblib, *.json)
 │   └── tests/              # pytest unit tests
 └── frontend/               # React single-page application
     └── src/
@@ -79,7 +79,7 @@ JWT_EXPIRE_MINUTES=60
 FIRST_SUPERADMIN_EMAIL=admin@churnguard.tn
 FIRST_SUPERADMIN_PASSWORD=admin123
 # Optional — enables the AI chatbot's full answers:
-# ANTHROPIC_API_KEY=sk-ant-...
+# AI_API_KEY=your-key-here
 ```
 
 Run the API:
@@ -175,5 +175,5 @@ with SHAP explanations on the Prediction page. Risk segments use the model's bin
 
 - The app degrades gracefully: if no trained model is present in `backend/ml/`, the Prediction
   page falls back to demo mode while the rest of the app keeps working.
-- The Help Assistant gives built-in answers by default; set `ANTHROPIC_API_KEY` for full AI replies.
+- The Help Assistant gives built-in answers by default; set `AI_API_KEY` for full AI replies.
 - The scheduled digest is a preview feature — preferences are saved but no email is sent yet.

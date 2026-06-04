@@ -127,7 +127,8 @@ class ChatResponse(BaseModel):
 
 @router.post("/", response_model=ChatResponse)
 def chat(req: ChatRequest, user: User = Depends(require_admin)):
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    api_key = os.environ.get("AI_API_KEY", "")
+    model = os.environ.get("AI_MODEL", "claude-haiku-4-5-20251001")
 
     if api_key:
         try:
@@ -137,7 +138,7 @@ def chat(req: ChatRequest, user: User = Depends(require_admin)):
             system = SYSTEM_PROMPT + ("\n\n" + live if live else "")
             msgs = [{"role": m.role, "content": m.content} for m in req.messages]
             resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
+                model=model,
                 max_tokens=512,
                 system=system,
                 messages=msgs,
@@ -243,4 +244,4 @@ def _faq(messages: List[Msg]) -> str:
             "- *How do I run a prediction?*\n"
             "- *What do risk levels mean?*\n"
             "- *How does batch prediction work?*\n\n"
-            "For full AI responses on any question, add `ANTHROPIC_API_KEY=your-key` to the backend `.env` file.")
+            "For full AI responses on any question, add `AI_API_KEY=your-key` to the backend `.env` file.")
