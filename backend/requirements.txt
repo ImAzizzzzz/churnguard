@@ -1,0 +1,32 @@
+# ── Web framework ─────────────────────────
+fastapi==0.136.3
+uvicorn[standard]==0.48.0
+python-multipart==0.0.29
+
+# ── Database ──────────────────────────────
+SQLAlchemy==2.0.50
+psycopg2-binary==2.9.12
+
+# ── Config / validation ───────────────────
+pydantic[email]==2.13.4
+pydantic-settings==2.14.1
+python-dotenv==1.2.2
+
+# ── Auth ──────────────────────────────────
+python-jose[cryptography]==3.5.0
+bcrypt==5.0.0
+
+# ── Data / ML ─────────────────────────────
+pandas==3.0.3
+numpy==2.4.6
+scikit-learn==1.8.0
+joblib==1.5.3
+shap==0.51.0
+openpyxl==3.1.5
+
+# ── Testing ───────────────────────────────
+pytest==9.0.3
+httpx==0.28.1
+
+# ── Optional: live AI assistant (chat.py). Only needed if ANTHROPIC_API_KEY is set.
+# anthropic>=0.40

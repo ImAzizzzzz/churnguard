@@ -1,0 +1,29 @@
+# ─── Python ───────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+*.log
+
+# ─── Secrets / env ────────────────────────
+.env
+*.env
+!*.env.example
+backend/login.json
+
+# ─── Node / frontend ──────────────────────
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ─── Editors / OS ─────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# ─── ML artifacts (large) ─────────────────
+*.joblib.bak
